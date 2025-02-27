@@ -1,5 +1,0 @@
-/src
-  index.js           # Entry point of the application
-  App.js             # Main application component with routing
-  index.css          # Global styles including Tailwind imports
-  setupTests.js      # (Optional) Configuration for testing

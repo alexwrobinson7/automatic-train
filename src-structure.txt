@@ -1,0 +1,33 @@
+src/
+├── app/
+│   ├── api/
+│   │   └── route.ts
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+├── components/
+│   ├── ui/
+│   │   ├── Button.tsx
+│   │   ├── Card.tsx
+│   │   ├── Input.tsx
+│   │   └── index.ts
+│   ├── layout/
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Sidebar.tsx
+│   │   └── index.ts
+│   └── index.ts
+├── hooks/
+│   ├── useAuth.ts
+│   ├── useSupabase.ts
+│   └── index.ts
+├── lib/
+│   ├── supabase.ts
+│   └── utils.ts
+├── types/
+│   ├── database.types.ts
+│   └── index.ts
+├── styles/
+│   └── theme.css
+└── context/
+    └── AuthContext.tsx

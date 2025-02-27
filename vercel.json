@@ -13,6 +13,6 @@
   ],
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.json" }
+    { "src": "/.*", "dest": "/index.js" }
   ]
 }

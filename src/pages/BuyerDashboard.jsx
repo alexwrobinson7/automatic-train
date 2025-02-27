@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
-// Mock data for charts
+
 const marketData = [
   { month: 'Jan', value: 540 },
   { month: 'Feb', value: 520 },
@@ -11,14 +11,14 @@ const marketData = [
   { month: 'Jun', value: 750 },
 ];
 
-// Mock properties data
+
 const properties = [
   { id: 1, image: "/api/placeholder/280/180", title: "Modern Downtown Loft", price: "$785,000", address: "123 Urban St", beds: 2, baths: 2, sqft: 1450 },
   { id: 2, image: "/api/placeholder/280/180", title: "Seaside Villa", price: "$1,250,000", address: "456 Coastal Ave", beds: 4, baths: 3, sqft: 2800 },
   { id: 3, image: "/api/placeholder/280/180", title: "Mountain Retreat", price: "$920,000", address: "789 Alpine Rd", beds: 3, baths: 2.5, sqft: 2100 }
 ];
 
-// Mock offer templates
+
 const offerTemplates = [
   { id: 1, name: "Standard Offer", description: "A balanced offer template for most property types" },
   { id: 2, name: "Competitive Market", description: "Stronger terms for highly competitive markets" },
@@ -26,13 +26,13 @@ const offerTemplates = [
   { id: 4, name: "First-Time Buyer", description: "Extra protections for first-time homebuyers" }
 ];
 
-// Mock saved offers
+
 const savedOffers = [
   { id: 1, property: "Modern Downtown Loft", date: "Mar 12, 2025", status: "Draft", amount: "$765,000" },
   { id: 2, property: "Seaside Villa", date: "Mar 10, 2025", status: "Submitted", amount: "$1,225,000" }
 ];
 
-// Mock chat history
+
 const initialChatHistory = [
   { sender: 'agent', message: "Hi there! I'm Agent Ally, your AI real estate assistant. How can I help you today?" },
   { sender: 'user', message: "I'm interested in making an offer on the Modern Downtown Loft." },
@@ -41,7 +41,7 @@ const initialChatHistory = [
   { sender: 'agent', message: "I understand your desire to make a competitive offer, but I'd advise against waiving the inspection contingency completely. The Modern Downtown Loft was built in 2008 and could have hidden issues. Instead, I recommend a shortened inspection timeline (3 days instead of 7) and specifying you'll only request repairs exceeding $5,000. This gives you protection while still showing sellers you're serious. I've updated your offer template with this approach, which you can review in the Offer Generator section." }
 ];
 
-// Mock communications data
+
 const communications = [
   { 
     id: 1, 
@@ -109,7 +109,7 @@ const communications = [
   }
 ];
 
-// Mock transaction timeline data
+
 const transactionTimeline = [
   { 
     id: 1, 
@@ -202,7 +202,7 @@ const transactionTimeline = [
 ];
 
 const AgentAllyBuyersDashboard = () => {
-  // State initialization
+
   const [activeTab, setActiveTab] = useState('saved');
   const [activeDashboardTab, setActiveDashboardTab] = useState('properties');
   const [chatOpen, setChatOpen] = useState(false);
@@ -217,7 +217,7 @@ const AgentAllyBuyersDashboard = () => {
   
   const chatEndRef = useRef(null);
 
-  // Scroll to bottom of chat whenever history changes
+ 
   useEffect(() => {
     if (chatEndRef.current) {
       chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -235,7 +235,7 @@ const AgentAllyBuyersDashboard = () => {
     setChatHistory(newChatHistory);
     setInputMessage('');
     
-    // Simulate AI response after a short delay
+
     setTimeout(() => {
       setChatHistory([
         ...newChatHistory,
@@ -531,17 +531,17 @@ const AgentAllyBuyersDashboard = () => {
     }
   };
 
-  // Begin render of main component
+
   return (
     <div className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
-      {/* Top navigation bar */}
+
       <nav className="bg-white shadow-md px-6 py-4 flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <div className="bg-blue-600 text-white font-bold p-2 rounded">AA</div>
           <span className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Agent Ally</span>
         </div>
         <div className="flex items-center space-x-4">
-          {/* Chat with Agent Ally Button in Nav */}
+
           <button 
             onClick={() => setChatOpen(true)} 
             className="flex items-center space-x-2 bg-blue-50 hover:bg-blue-100 text-blue-600 px-3 py-2 rounded-full transition-colors"
@@ -560,7 +560,7 @@ const AgentAllyBuyersDashboard = () => {
         </div>
       </nav>
 
-      {/* Main content */}
+
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800">Your Dashboard</h1>
@@ -574,7 +574,7 @@ const AgentAllyBuyersDashboard = () => {
           </div>
         </div>
 
-        {/* Stats overview */}
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <div className="flex justify-between items-start">
@@ -634,7 +634,7 @@ const AgentAllyBuyersDashboard = () => {
           </div>
         </div>
 
-        {/* Dashboard Navigation Tabs */}
+
         <div className="flex mb-8 border-b border-gray-200 overflow-x-auto">
           <button
             className={`px-6 py-3 font-medium whitespace-nowrap ${activeDashboardTab === 'properties' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700'}`}
@@ -674,10 +674,10 @@ const AgentAllyBuyersDashboard = () => {
           </button>
         </div>
 
-        {/* Properties Tab Content */}
+
         {activeDashboardTab === 'properties' && (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left column - Property cards */}
+
             <div className="lg:col-span-2 space-y-6">
               <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
                 <div className="p-6 border-b border-gray-100">
@@ -772,9 +772,9 @@ const AgentAllyBuyersDashboard = () => {
               </div>
             </div>
 
-            {/* Right column - Market data and recommendations */}
+
             <div className="space-y-6">
-              {/* Market insights */}
+
               <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
                 <div className="p-6 border-b border-gray-100">
                   <h2 className="text-xl font-bold text-gray-800">Market Insights</h2>
@@ -820,7 +820,7 @@ const AgentAllyBuyersDashboard = () => {
                 </div>
               </div>
 
-              {/* AI Recommendations */}
+
               <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
                 <div className="p-6 border-b border-gray-100">
                   <h2 className="text-xl font-bold text-gray-800">AI Recommendations</h2>
@@ -853,7 +853,7 @@ const AgentAllyBuyersDashboard = () => {
                 </div>
               </div>
 
-              {/* Upcoming Viewings */}
+
               <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
                 <div className="p-6 border-b border-gray-100">
                   <h2 className="text-xl font-bold text-gray-800">Upcoming Viewings</h2>
@@ -882,7 +882,7 @@ const AgentAllyBuyersDashboard = () => {
           </div>
         )}
 
-        {/* Offer Generator */}
+
         {activeDashboardTab === 'offers' && (
           <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
             <div className="p-6 border-b border-gray-100">
@@ -901,7 +901,7 @@ const AgentAllyBuyersDashboard = () => {
           </div>
         )}
 
-        {/* Saved Offers */}
+
         {activeDashboardTab === 'saved-offers' && (
           <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
             <div className="p-6 border-b border-gray-100">
@@ -961,10 +961,10 @@ const AgentAllyBuyersDashboard = () => {
           </div>
         )}
 
-        {/* Communications Hub */}
+
         {activeDashboardTab === 'communications' && (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Left sidebar - emails/messages list */}
+
             <div className="lg:col-span-1">
               <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
                 <div className="p-4 border-b border-gray-100">
@@ -1066,7 +1066,7 @@ const AgentAllyBuyersDashboard = () => {
               </div>
             </div>
             
-            {/* Right column - message content */}
+
             <div className="lg:col-span-2">
               <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
                 <div className="p-4 border-b border-gray-100 flex justify-between items-center">
@@ -1206,7 +1206,7 @@ const AgentAllyBuyersDashboard = () => {
           </div>
         )}
         
-        {/* Market Insights Tab */}
+
         {activeDashboardTab === 'market' && (
           <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
             <div className="p-6 border-b border-gray-100">
@@ -1223,7 +1223,7 @@ const AgentAllyBuyersDashboard = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                   </div>
-                  {/* Neighborhood autocomplete dropdown (shown when typing) */}
+    
                   <div className="absolute w-full mt-1 bg-white shadow-lg rounded-lg border border-gray-200 z-10 hidden">
                     <ul className="py-1">
                       <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer text-sm">Downtown</li>
@@ -1375,7 +1375,7 @@ const AgentAllyBuyersDashboard = () => {
           </div>
         )}
         
-        {/* Transaction Timeline */}
+
         {activeDashboardTab === 'timeline' && (
           <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
             <div className="p-6 border-b border-gray-100">
@@ -1390,10 +1390,10 @@ const AgentAllyBuyersDashboard = () => {
             
             <div className="p-6">
               <div className="relative">
-                {/* Timeline connector */}
+
                 <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-200"></div>
                 
-                {/* Timeline items */}
+
                 <div className="space-y-8">
                   {transactionTimeline.map((stage) => (
                     <div key={stage.id} className="relative">
@@ -1472,7 +1472,7 @@ const AgentAllyBuyersDashboard = () => {
         )}
       </div>
 
-      {/* Persistent Chat button (fixed at bottom right) */}
+
       <div className="fixed bottom-6 right-6 z-50">
         <button 
           onClick={() => setChatOpen(!chatOpen)}
@@ -1490,7 +1490,7 @@ const AgentAllyBuyersDashboard = () => {
         </button>
       </div>
 
-      {/* Enhanced Chat window */}
+
       {chatOpen && (
         <div className="fixed bottom-24 right-6 w-80 md:w-96 lg:w-1/3 xl:w-1/4 bg-white rounded-lg shadow-xl z-50 border border-gray-200 overflow-hidden flex flex-col" style={{ height: '70vh', maxHeight: '700px' }}>
           <div className="bg-blue-600 text-white p-4 flex justify-between items-center">
@@ -1515,7 +1515,7 @@ const AgentAllyBuyersDashboard = () => {
             </div>
           </div>
           
-          {/* Quick action buttons */}
+
           <div className="bg-blue-50 p-3 border-b border-blue-100 flex space-x-2 overflow-x-auto">
             <button className="whitespace-nowrap bg-white text-blue-600 text-sm px-3 py-1 rounded-full shadow-sm border border-blue-200 hover:bg-blue-600 hover:text-white transition-colors">
               Help with offer

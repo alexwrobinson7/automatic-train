@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
-import BuyerDashboard from './pages/BuyerDashboard'; // Adjust the import path if necessary
+import BuyerDashboard from './pages/BuyerDashboard.jsx'; 
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import ProtectedRoute from './components/common/ProtectedRoute';
